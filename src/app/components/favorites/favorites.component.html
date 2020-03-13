@@ -1,0 +1,10 @@
+<h1>Favorite Foods</h1>
+<table>
+    <tr style="height:2rem;" *ngFor="let favorite of favorites">
+        <td style="width:12rem;">{{favorite.Food}}</td><td><a [routerLink]="['/delete/'+favorite.id]">Delete</a></td><td><a [routerLink]="['/update/'+favorite.id+'/'+favorite.Food]">Update</a></td>
+    </tr>
+</table>
+<form [formGroup]="favForm" (ngSubmit)="addFavorite(favForm)" style="margin-top:1rem;">
+    <input formControlName="favToAdd" placeholder="" style="width: 12rem;">
+    <button type="submit" style="margin-left:1rem;">Add Favorite</button>
+</form>
